@@ -1,34 +1,58 @@
-package stringClaas1;
+package pomclass;
 
-public class String2 {
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-	public static void main(String[] args) {
-		
-		String a1=" I am Functional Tester ";
-		String a2="Embebded Engineer";
-		String a3 ="Embebded Engineer";
+public class KiteLoginPage1 {
 
-		System.out.println(a1.length());
-		System.out.println(a2.length());    // for length
+	// step1: declaration
+		@FindBy(xpath = "//input[@id='userid']") 
+		private WebElement UN; 	//private WebElement UN = driver.findelement(By.xpath(""))
 		
-	   //  System.out.println(a2=a1);  // String a2 equals too a1
-		System.out.println(a1==a2); // here its compare i.e true or false
-		System.out.println("Statement number 4th" +a1==a2);
+		@FindBy(xpath = "//input[@id='password']")
+		private WebElement pwd; 	//private WebElement UN = driver.findelement(By.xpath(""))
 		
-		System.out.println(a2.toUpperCase());   //AS ALWYAS I AM AUTOMATION TESTER
-		System.out.println(a1.toLowerCase());   // i am functional tester
+		@FindBy(xpath = "//button[@class='button-orange wide']") 
+		private WebElement loginBtn; //private WebElement UN = driver.findelement(By.xpath(""))
 		
-		System.out.println(a2.substring(14));  //print only after index of 9th i.e onwards
-		System.out.println(a1.replaceAll("\\s", ""));
-		System.out.println(a3.replaceAll("[A-Z a-z]", ""));
+		@FindBy(xpath = "//span[contains(text()'Password should')]")
+		private WebElement errorMsgPWD;
+		
+		@FindBy(xpath = "//span[contains(text(),'User ID')]")
+		private WebElement errorMsgUN;
 	
-		 String str = "    Geeks     for    Geeks    ";
-	       
-	        // Call the replaceAll() method
-	        str = str.replaceAll("\\s", "");
-	       
-	        System.out.println(str);
-				
-	}
+		// step2: initialization
+		public KiteLoginPage1(WebDriver driverValue) 
+		{
+			PageFactory.initElements(driverValue, this);
+		}
+		// usage
+		public void inpKiteLogin1PageUsername(String username)
+		{
+		
+			UN.sendKeys(username);
+		}
 
+		public void inpKiteLogin1PagePassword(String passwords) {
+			pwd.sendKeys(passwords);
+		}
+
+		public void clickKiteLogin1PageLoginBtn() {
+			loginBtn.click();
+		}
+		
+		public String getKiteLogin1PageErrorMsgPWD() 
+		{
+			String actText = errorMsgPWD.getText();
+			return actText;
+		}
+		
+		public String getKiteLogin1PageErrorMsgUN() 
+		{
+			String actText = errorMsgUN.getText();
+			return actText;
+	
+		}
 }
