@@ -1,0 +1,34 @@
+package stringClaas1;
+
+public class String2 {
+
+	public static void main(String[] args) {
+		
+		String a1=" I am Functional Tester ";
+		String a2="Embebded Engineer";
+		String a3 ="Embebded Engineer";
+
+		System.out.println(a1.length());
+		System.out.println(a2.length());    // for length
+		
+	   //  System.out.println(a2=a1);  // String a2 equals too a1
+		System.out.println(a1==a2); // here its compare i.e true or false
+		System.out.println("Statement number 4th" +a1==a2);
+		
+		System.out.println(a2.toUpperCase());   //AS ALWYAS I AM AUTOMATION TESTER
+		System.out.println(a1.toLowerCase());   // i am functional tester
+		
+		System.out.println(a2.substring(14));  //print only after index of 9th i.e onwards
+		System.out.println(a1.replaceAll("\\s", ""));
+		System.out.println(a3.replaceAll("[A-Z a-z]", ""));
+	
+		 String str = "    Geeks     for    Geeks    ";
+	       
+	        // Call the replaceAll() method
+	        str = str.replaceAll("\\s", "");
+	       
+	        System.out.println(str);
+				
+	}
+
+}
